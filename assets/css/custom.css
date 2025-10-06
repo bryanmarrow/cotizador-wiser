@@ -1,0 +1,656 @@
+/* Custom styles for Cotizador Wiser */
+
+/* Smooth transitions for phase changes */
+.contenido-fase {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.contenido-fase.hidden {
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+}
+
+.contenido-fase.slide-out {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+/* Legacy support for old class names */
+.phase-content {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.phase-content.hidden {
+    opacity: 0;
+    transform: translateX(20px);
+    pointer-events: none;
+}
+
+.phase-content.slide-out {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+/* Cart drawer animations */
+#panel-carrito.show {
+    display: flex !important;
+}
+
+#panel-carrito.show #contenido-carrito {
+    transform: translateX(0);
+}
+
+/* Legacy support */
+#cart-drawer.show {
+    display: flex !important;
+}
+
+#cart-drawer.show #cart-content {
+    transform: translateX(0);
+}
+
+/* Custom input focus styles */
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Equipment item cards */
+.elemento-equipo {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+}
+
+.elemento-equipo:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.elemento-equipo.expanded {
+    border-color: #3b82f6;
+}
+
+/* Legacy support */
+.equipment-item {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s ease;
+}
+
+.equipment-item:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.equipment-item.expanded {
+    border-color: #3b82f6;
+}
+
+/* Progress bar animation */
+#barra-progreso {
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Legacy support */
+#progress-bar {
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Button loading state */
+.btn-loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    margin: -8px 0 0 -8px;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form validation styles */
+.form-error {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Success states */
+.form-success {
+    border-color: #10b981 !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+    .wizard-container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Ensure touch targets are adequate */
+    button, input, select {
+        min-height: 44px;
+    }
+    
+    /* Cart drawer takes more width on mobile */
+    #contenido-carrito {
+        width: 100vw;
+        max-width: 100vw;
+    }
+    
+    /* Legacy support */
+    #cart-content {
+        width: 100vw;
+        max-width: 100vw;
+    }
+}
+
+/* Tablet screens - mantener diseño móvil con más espacio */
+@media (min-width: 768px) {
+    /* main {
+        max-width: 36rem;
+    } */
+    
+    header > div {
+        max-width: 36rem;
+    }
+    
+    footer > div {
+        max-width: 36rem;
+    }
+    
+    .progress-container {
+        max-width: 36rem;
+    }
+}
+
+/* Desktop screens - aprovechar espacio horizontal */
+@media (min-width: 1024px) {
+    /* main { */
+        /* max-width: 56rem;  */
+        /* 896px - más espacio para desktop */
+    /* } */
+    
+    header > div {
+        max-width: 56rem;
+    }
+    
+    footer > div {
+        max-width: 56rem;
+    }
+    
+    .progress-container {
+        max-width: 56rem;
+    }
+    
+    /* Layout de dos columnas para formularios largos */
+    .desktop-grid-2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    /* Layout de tres columnas para inputs pequeños */
+    .desktop-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+    
+    /* Carrito como sidebar fija en desktop */
+    #panel-carrito {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 400px;
+        height: 100vh;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 50;
+    }
+    
+    #panel-carrito.show {
+        transform: translateX(0);
+    }
+    
+    #contenido-carrito {
+        width: 100%;
+        transform: none !important;
+    }
+}
+
+/* Large desktop screens */
+@media (min-width: 1440px) {
+    /* main { */
+        /* max-width: 72rem; */
+         /* 1152px - máximo para pantallas grandes */
+    /* } */
+    
+    header > div {
+        max-width: 72rem;
+    }
+    
+    footer > div {
+        max-width: 72rem;
+    }
+    
+    .progress-container {
+        max-width: 72rem;
+    }
+    
+    /* Aumentar ancho del carrito en pantallas muy grandes */
+    #panel-carrito {
+        width: 480px;
+    }
+}
+
+/* Extra large desktop screens */
+@media (min-width: 1920px) {
+    header > div {
+        max-width: 96rem;
+    }
+    
+    footer > div {
+        max-width: 96rem;
+    }
+    
+    .progress-container {
+        max-width: 96rem;
+    }
+    
+    /* Carrito más ancho para pantallas 4K */
+    #panel-carrito {
+        width: 520px;
+    }
+}
+
+/* Ultra wide screens */
+@media (min-width: 2560px) {
+    header > div {
+        max-width: 120rem;
+    }
+    
+    footer > div {
+        max-width: 120rem;
+    }
+    
+    .progress-container {
+        max-width: 120rem;
+    }
+    
+    /* Carrito optimizado para ultrawide */
+    #panel-carrito {
+        width: 600px;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+    }
+    
+    .print-section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Accessibility improvements */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus visible for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Custom scrollbar for cart */
+#elementos-carrito::-webkit-scrollbar {
+    width: 6px;
+}
+
+#elementos-carrito::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+#elementos-carrito::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+#elementos-carrito::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Legacy support */
+#cart-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+#cart-items::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+#cart-items::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+}
+
+#cart-items::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Loading overlay */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* Equipment summary cards */
+.summary-card {
+    background: #f8fafc;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.summary-card.collapsed .details {
+    display: none;
+}
+
+/* Utility classes */
+.text-currency {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-weight: 600;
+}
+
+.divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+    margin: 1rem 0;
+}
+
+/* Clases de utilidad responsive - mobile first */
+.responsive-container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+    .responsive-container {
+        max-width: 36rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 1024px) {
+    .responsive-container {
+        max-width: 56rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .responsive-container {
+        max-width: 72rem;
+    }
+}
+
+/* Extra large desktop screens */
+@media (min-width: 1920px) {
+    .responsive-container {
+        max-width: 96rem; /* 1536px - para pantallas 4K y ultrawide */
+    }
+}
+
+/* Ultra wide screens */
+@media (min-width: 2560px) {
+    .responsive-container {
+        max-width: 120rem; /* 1920px - máximo contenido útil */
+    }
+}
+
+/* Clases para mostrar/ocultar según dispositivo */
+.mobile-only {
+    display: block;
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .mobile-only {
+        display: none;
+    }
+    
+    .desktop-only {
+        display: block;
+    }
+    
+    .desktop-only.inline {
+        display: inline;
+    }
+    
+    .desktop-only.inline-block {
+        display: inline-block;
+    }
+    
+    .desktop-only.flex {
+        display: flex;
+    }
+    
+    .desktop-only.grid {
+        display: grid;
+    }
+}
+
+/* Footer fixed en desktop y tablet landscape */
+@media (min-width: 768px) and (orientation: landscape) {
+    /* Footer fijo en el bottom */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Agregar padding-bottom al main para compensar el footer fijo */
+    main {
+        padding-bottom: 180px; /* Ajustar según altura del footer */
+    }
+}
+
+/* Footer fixed específicamente para desktop */
+@media (min-width: 1024px) {
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Agregar padding-bottom al main para compensar el footer fijo */
+    main {
+        padding-bottom: 200px; /* Altura suficiente para el footer */
+    }
+    
+    /* Asegurar que el body tenga altura mínima completa */
+    body {
+        min-height: 100vh;
+    }
+}
+
+/* Desktop-specific improvements */
+@media (min-width: 1024px) {
+    /* Mejorar espaciado de equipos en desktop */
+    .elemento-equipo, .equipment-item {
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+    
+    /* Layout horizontal para detalles de equipo */
+    .equipo-detalles-desktop {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 2rem;
+        align-items: start;
+    }
+    
+    /* Formularios en columnas para desktop */
+    .form-grid-desktop {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    /* Tabla responsiva para listas */
+    .desktop-table {
+        display: table;
+        width: 100%;
+    }
+    
+    .desktop-table-row {
+        display: table-row;
+    }
+    
+    .desktop-table-cell {
+        display: table-cell;
+        padding: 0.75rem;
+        border-bottom: 1px solid #e5e7eb;
+        vertical-align: top;
+    }
+    
+    /* Hover effects para desktop */
+    .hover-elevate:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* Mejor legibilidad de texto en pantallas grandes */
+    body {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+    
+    /* Espaciado mejorado para botones en desktop */
+    .btn-group-desktop {
+        display: flex;
+        gap: 0.75rem;
+        justify-content: flex-start;
+    }
+    
+    .btn-group-desktop.justify-end {
+        justify-content: flex-end;
+    }
+    
+    /* Sidebar de navegación si es necesaria */
+    .desktop-sidebar {
+        width: 280px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        background: white;
+        border-right: 1px solid #e5e7eb;
+        z-index: 30;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    .desktop-sidebar.show {
+        transform: translateX(0);
+    }
+    
+    /* Ajustar contenido cuando sidebar está activa */
+    .with-sidebar {
+        margin-left: 280px;
+    }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
