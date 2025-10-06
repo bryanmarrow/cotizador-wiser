@@ -185,8 +185,81 @@ $prospectos = [
     </style>
 </head>
 <body class="min-h-screen bg-[#f6f7fb]">
-    <div class="min-h-screen px-4 py-10 sm:px-8 lg:px-16 xl:px-24">
-        <div class="mx-auto max-w-7xl space-y-8">
+    <div class="flex min-h-screen">
+        <aside class="hidden w-72 flex-col border-r border-gray-200 bg-white px-6 py-8 shadow-soft lg:flex">
+            <div class="mb-10">
+                <div class="text-2xl font-bold text-primary">Wiser CRM</div>
+                <p class="mt-1 text-sm text-gray-500">Panel de demostración</p>
+            </div>
+            <nav class="flex-1 space-y-6 text-sm font-medium text-gray-600">
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">General</p>
+                    <div class="mt-3 space-y-2">
+                        <a href="#" class="flex items-center gap-3 rounded-xl bg-primary/10 px-4 py-2 text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6" />
+                            </svg>
+                            Panel principal
+                        </a>
+                        <a href="#" class="flex items-center gap-3 rounded-xl px-4 py-2 transition hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75h12M8.25 12h12m-12 5.25h12M3.75 6.75h.008v.008H3.75V6.75zm0 5.25h.008v.008H3.75V12zm0 5.25h.008v.008H3.75v-.008z" />
+                            </svg>
+                            Prospectos
+                        </a>
+                        <a href="#" class="flex items-center gap-3 rounded-xl px-4 py-2 transition hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v12m-9-12v12" />
+                            </svg>
+                            Pipeline
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">CRM</p>
+                    <div class="mt-3 space-y-2">
+                        <a href="#" class="flex items-center gap-3 rounded-xl px-4 py-2 transition hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5a7.5 7.5 0 1115 0" />
+                            </svg>
+                            Clientes
+                        </a>
+                        <a href="#" class="flex items-center gap-3 rounded-xl px-4 py-2 transition hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 4.5h16.5M3.75 19.5h16.5M4.5 8.25h15M4.5 15.75h15" />
+                            </svg>
+                            Actividades
+                        </a>
+                        <a href="#" class="flex items-center gap-3 rounded-xl px-4 py-2 transition hover:bg-gray-100">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Reportes
+                        </a>
+                    </div>
+                </div>
+            </nav>
+            <div class="mt-10 rounded-2xl bg-gray-50 p-4">
+                <p class="text-sm font-semibold text-gray-900">Próximo evento</p>
+                <p class="mt-1 text-xs text-gray-500">Reunión de seguimiento - 12:00 PM</p>
+            </div>
+        </aside>
+        <div class="flex-1">
+            <div class="border-b border-gray-200 bg-white px-4 py-4 shadow-soft lg:hidden">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-gray-400">Wiser CRM</p>
+                        <p class="text-base font-semibold text-gray-900">Menú principal</p>
+                    </div>
+                    <button class="inline-flex items-center rounded-xl border border-gray-200 px-3 py-2 text-xs font-semibold text-gray-600">
+                        Menú
+                    </button>
+                </div>
+            </div>
+            <div class="min-h-screen px-4 py-10 sm:px-8 lg:px-16 xl:px-24">
+                <div class="mx-auto max-w-7xl space-y-8">
             <header class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                     <p class="text-sm font-medium uppercase tracking-wider text-primary">Gestión de prospectos y CRM</p>
@@ -318,6 +391,8 @@ $prospectos = [
                     </table>
                 </div>
             </section>
+                </div>
+            </div>
         </div>
     </div>
 </body>
